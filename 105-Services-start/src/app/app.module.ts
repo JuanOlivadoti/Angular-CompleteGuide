@@ -20,7 +20,8 @@ import { AccountsService } from './services/accounts.service';
     FormsModule,
   ],
   providers: [
-    LoggingService
+    LoggingService,
+    AccountsService
   ],
   bootstrap: [AppComponent]
 })
