@@ -26,7 +26,11 @@
       </ul>
       <p appBasicHighlight>appBasicHighlight directive</p>
       <p appBetterHighlight defaultColor="yellow"
-      highlightColor="green">appBetterHighlight directive</p>
+      highlightColor="green">appBetterHighlight directive {{ value }}</p>
+      <div [ngSwitch]="value">
+        <div *ngSwitchCase="5">output</div>
+        <div *ngSwitchDefault>output2</div>
+      </div>
       <ng-template [ngIf]="onlyOdd">
         <p>Only odd</p>
       </ng-template>
