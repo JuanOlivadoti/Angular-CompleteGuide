@@ -1,9 +1,18 @@
-import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appBetterHighlight]'
 })
 export class BetterHighlightDirective implements OnInit {
+  @HostListener('mouseenter') mouseover(eventData: Event){
+    this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'blue');
+    this.renderer.setStyle(this.elementRef.nativeElement, 'color', '#fff');
+  }
+
+  @HostListener('mouseleave') mouseleave(eventData: Event){
+    this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'transparent');
+    this.renderer.setStyle(this.elementRef.nativeElement, 'color', '#000');
+  }
 
   constructor(
     private elementRef: ElementRef,
@@ -11,7 +20,7 @@ export class BetterHighlightDirective implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'blue');
-    this.renderer.setStyle(this.elementRef.nativeElement, 'color', '#fff');
+    // this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'blue');
+    // this.renderer.setStyle(this.elementRef.nativeElement, 'color', '#fff');
   }
 }
