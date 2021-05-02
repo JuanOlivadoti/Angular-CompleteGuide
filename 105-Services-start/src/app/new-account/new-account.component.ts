@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { LoggingService } from '../logging.service';
+import { Component } from '@angular/core';
+import { AccountsService } from '../services/accounts.service';
+import { LoggingService } from '../services/logging.service';
 
 @Component({
   selector: 'app-new-account',
@@ -7,16 +8,19 @@ import { LoggingService } from '../logging.service';
   styleUrls: ['./new-account.component.css']
 })
 export class NewAccountComponent {
-  @Output() accountAdded = new EventEmitter<{ name: string, status: string }>();
 
-  constructor(private loggingService: LoggingService) { }
+  constructor(
+    private loggingService: LoggingService,
+    private accountsService: AccountsService
+  ) { }
 
   onCreateAccount(accountName: string, accountStatus: string) {
-    this.accountAdded.emit({
+
+    this.accountsService.onAccountAdded({
       name: accountName,
       status: accountStatus
     });
     this.loggingService.logStatusChange(accountStatus);
-    // console.log('A server status changed, new status: ' + accountStatus);
+
   }
 }
