@@ -1,21 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { UsersService } from './services/users.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   activeUsers = [];
   inactiveUsers = [];
 
-  constructor(
-    private usrSrv: UsersService
-  ) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.activeUsers = this.usrSrv.activeUsers;
-    this.inactiveUsers = this.usrSrv.inactiveUsers;
-  }
+  ngOnInit() { }
 }
