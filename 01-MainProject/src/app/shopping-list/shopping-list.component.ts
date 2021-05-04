@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Ingredient } from '../shared/ingredient.mode';
+import { Ingredient } from '../shared/ingredient.model';
 
 import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
 
