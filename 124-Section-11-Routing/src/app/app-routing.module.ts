@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AuthGuard } from "./auth-guard.service";
 
 // Components
 import { HomeComponent } from "./home/home.component";
@@ -18,7 +19,7 @@ const appRoutes: Routes = [{
       path: ':id/:name', component: UserComponent
     }]
   }, {
-    path: 'servers', component: ServersComponent,
+    path: 'servers', canActivate: [AuthGuard], component: ServersComponent,
     children: [{
       path: ':id', component: ServerComponent
     }, {
