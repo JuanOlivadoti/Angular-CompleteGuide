@@ -4,7 +4,7 @@ import { map, tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 import { Recipe } from '../recipes/recipe.model';
-import { RecipeService } from '../recipes/recipe.service';
+// import { RecipeService } from '../recipes/recipe.service';
 import * as fromApp from '../store/app.reducer';
 import * as RecipesActions from '../recipes/store/recipe.actions';
 
@@ -12,21 +12,21 @@ import * as RecipesActions from '../recipes/store/recipe.actions';
 export class DataStorageService {
   constructor(
     private http: HttpClient,
-    private recipeService: RecipeService,
+    // private recipeService: RecipeService,
     private store: Store<fromApp.AppState>
   ) {}
 
-  storeRecipes() {
-    const recipes = this.recipeService.getRecipes();
-    this.http
-      .put(
-        'https://ng-course-recipe-book-32629-default-rtdb.europe-west1.firebasedatabase.app/recipes.json',
-        recipes
-      )
-      .subscribe(response => {
-        console.log(response);
-      });
-  }
+  // storeRecipes() {
+  //   const recipes = this.recipeService.getRecipes();
+  //   this.http
+  //     .put(
+  //       'https://ng-course-recipe-book-32629-default-rtdb.europe-west1.firebasedatabase.app/recipes.json',
+  //       recipes
+  //     )
+  //     .subscribe(response => {
+  //       console.log(response);
+  //     });
+  // }
 
   fetchRecipes() {
     return this.http
